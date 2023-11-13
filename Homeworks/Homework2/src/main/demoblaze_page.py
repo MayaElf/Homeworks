@@ -33,7 +33,7 @@ class DemoBlazePage:
 
         self.driver.find_element(*self.user_password).send_keys(password)
         self.driver.find_element(*self.login_text_button).click()
-        time.sleep(3)
+        self.wait.until(EC.invisibility_of_element_located(self.login_text_button))
 
     def verify_login(self, login):
         self.wait.until(EC.visibility_of_element_located(self.welcome_message))
